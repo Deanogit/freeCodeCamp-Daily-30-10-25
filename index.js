@@ -22,12 +22,15 @@ function nthPrime(n) {
   while (count < n) {
     if (isPrime(candidate)) {
       count++;
+      // console.log(count)
     }
     if (count < n) {
       candidate++;
+      console.log(candidate);
     }
-    return candidate;
   }
+
+  return candidate;
 
   //  for (let i = 0; i < n; i++) {
   //    if ( i % 1 === 0 && i % i === 0) {
