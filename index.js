@@ -7,15 +7,37 @@ function nthPrime(n) {
   console.log(n);
   const arr = [];
 
-  for (let i = 0; i < n; i++) {
-    if (i % 1 === 0 && i % i === 0) {
-      arr.push(i);
+  // helper function to find primes
+  function isPrime(num) {
+    // Start at 2, check if any number up to the square root of num divides it evenly
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
     }
+    return true;
   }
+
+  // counter while true
+  let candidate = 2;
+  let count = 0;
+  while (count < n) {
+    if (isPrime(candidate)) {
+      count++;
+    }
+    if (count < n) {
+      candidate++;
+    }
+    return candidate;
+  }
+
+  //  for (let i = 0; i < n; i++) {
+  //    if ( i % 1 === 0 && i % i === 0) {
+  //      arr.push(i)
+  //    }
+  //  }
   // divisible by one and itself
-  if (n % 1 === 0 && n % n === 0) {
-    console.log('Prime');
-  }
-  console.log(arr);
-  return n;
+  //  if (n % 1 === 0 && n % n === 0) {
+  //    console.log("Prime")
+  //   }
+  //  console.log(arr)
+  // return n;
 }
